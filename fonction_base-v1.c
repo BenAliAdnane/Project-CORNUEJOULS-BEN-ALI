@@ -8,6 +8,7 @@ int main()
     scanf("your age is %d", &age);
     printf("hi");
     printf("%d", age );
-    return 0;
 
+    // DEuxieme version du test de commmit 
+    return 0;
 }
