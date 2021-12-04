@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <stdbool.h>
+#define TAILLE_MAX 1000
 
 
-int lire_fin_ligne()
+
+int lire_fin_ligne() // indique le nombre de caractère qu'il reste dans une ligne //
 {
     int cpt = 0;
-    char c = getchar();
+    char c = getchar(); // renvoie directement ce qu'il y'a dans le buffer char par char ou EOF si fin ligne//
     while(c!=EOF && c!='\n')
     {
         if(!isspace(c))
@@ -19,26 +22,61 @@ int lire_fin_ligne()
 void lire_entier(int * n)
 {
     int lu;
-    int nbeff=0; // on veut vider le buffer lorsque l'humain ne tape pas d'entier //
     do
     {
-        lu=scanf("%d", n); // pas de & car on a deja int * n //
-        nbeff=lire_fin_ligne();
-        if(lu!=1 || nbeff>0)
+        lu=scanf("%d", n);
+        if(lu!=1 && lit_format(n)==false)
             printf("refais");
-    }while(lu!=1 || nbeff>0);
+    }while(lu!=1 && lit_format(n)!=true);
     
 }
 
-void lire_decimal( float * n)
+void lire_decimal( float * n )
 {
     int lu;
-    int nbeff=0; // on veut vider le buffer lorsque l'humain ne tape pas d'entier //
     do
     {
-        lu=scanf("%f", n); // pas de & car on a deja int * n //
-        nbeff=lire_fin_ligne();
-        if(lu!=1 || nbeff>0)
-            printf("C'est pas un float");
-    }while(lu!=1 || nbeff>0);
+        lu=scanf("%f", n); // pas de & car on a deja float * n // //renvoie 0 si pas float, 1 sinon//
+        if(lu!=1 && lit_format(n)==false)
+            printf("refais");
+    }while(lu!=1 && lit_format(n)!=true);
+}
+
+bool lit_format(char * s)
+{
+    bool valid;
+    valid = false;
+    fgets(s, TAILLE_MAX,stdin);
+
+    int len = strlen(s);
+
+    while( len>0 && isspace(s[len-1]))
+    {
+        len--;
+        if(len>0)
+        {
+            valid = true;
+            for (int i=0; i<len); i++)
+            {
+                if(!isdigit(s[i]))
+                {
+                    valid = false;
+                    break;
+                }
+            }
+        }
+    }
+    return valid;
+}
+
+void lire_entier(int * n)
+{
+    int lu;
+    do
+    {
+        lu=scanf("%d", n);
+        if(lu!=1 && lit_format(n)==false)
+            printf("refais");
+    }while(lu!=1 && lit_format(n)!=true && *n < 0);
+    
 }
