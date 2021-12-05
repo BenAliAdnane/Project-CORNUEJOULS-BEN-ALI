@@ -5,11 +5,11 @@ CFLAGS=  -Wextra -Wall -pedantic -g
 LDFLAGS=  -lm -lentrees -llorenz
 
 # emplacement des .a
-LIB= ../../lib
+LIB= ../../../lib
 
 
 # emplacement des .h
-INC= ../../include
+INC= ../../../include
 
 
 SRC= testlorenz.c

@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <math.h>
-#include "../lorenz/lorenz.c"
-#include "../../Include/lorenz.h"
-#include "../../Include/entrees.h"
+#include "../../lorenz/lorenz.c"
+#include "../../../Include/lorenz.h"
+#include "../../../Include/entrees.h"
 
 
 int main(){

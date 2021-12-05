@@ -4,6 +4,7 @@
 #include "../../Include/entrees.h"
 #include "../entrees/entrees.c"
 
+
 void pos_initiale(float *t){
     printf("Position initiale (x, y, z) :\n");
     for (int i = 0; i < 3; i++){
