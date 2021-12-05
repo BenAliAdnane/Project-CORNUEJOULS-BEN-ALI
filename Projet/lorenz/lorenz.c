@@ -2,19 +2,31 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "../../Include/entrees.h"
-#include "../entrees/entrees.c"
+#include "../../Include/lorenz.h"
 
 
-void pos_initiale(float *t){
+struct point_s{       //x, y, z sont les coordonnées et t le temps
+    float x;
+    float y;
+    float z;
+    float t;
+} Point_s;
+
+
+
+void pos_initiale(Point p){
     printf("Position initiale (x, y, z) :\n");
-    for (int i = 0; i < 3; i++){
-        lire_decimal(&t[i]);
-    }
+    lire_decimal(&(p->x));
+    lire_decimal(&(p->y));
+    lire_decimal(&(p->z));
+    p->t = 0;
 }
 
-void def_Pas(float *t){
+float def_Pas(){
+    float res;
     printf("Pas de temps (dt) :\n");
-    lire_decimal(t);
+    lire_decimal(&res);
+    return res;
 }
 
 void def_settings(int *sigma, int* rho, int* beta){
@@ -25,10 +37,13 @@ void def_settings(int *sigma, int* rho, int* beta){
 
 }
 
-int * point_suivant(int *t, int sigma, int rho, int beta){
-    int res[3];
-    res[0] = t[0] + sigma * (t[1] - t[0]);    //diviser par dt !!!//
-    res[1] = t[1] + t[0] * (rho - t[2]) - t[1];
-    res[2] = t[2] + t[0] * t[1] - beta*t[2];
-    return res;
+void point_suivant(Point p,Point suivant, float dt, int sigma, int rho, int beta){
+
+    suivant->x = p->x + ( sigma * (p->y - p->x) )/dt;    //diviser par dt !!!//
+    
+    suivant->y = p->y + ( p->x * (rho - p->z) - p->y )/dt;
+    
+    suivant->z = p->z + ( p->x * p->y - beta*p->z )/dt;
+
+    suivant ->t = p->t +1;
 }

@@ -26,7 +26,7 @@ EXEC=testlorenz.exe
 all: $(EXEC)
 
 
-$(EXEC): $(OBJ) $(INC)/lorenz.h entrees.h
+$(EXEC): $(OBJ) $(INC)/lorenz.h
 
 	$(CC) $(CFLAGS) -o $(EXEC) $(OBJ) -I $(INC) -L $(LIB) $(LDFLAGS)
 

@@ -2,10 +2,18 @@
 #include <stdio.h>
 #include <ctype.h>
 
-void pos_initiale(float *t);
+#ifndef __POINT__
+#define __POINT__
 
-void def_Pas(float *t);
+typedef struct point_s *Point;
+
+void pos_initiale(Point p);
+
+float def_Pas();
 
 void def_settings(int *sigma, int* rho, int* beta);
 
-int * point_suivant(int *t, int sigma, int rho, int beta);
+void point_suivant(Point p, Point suivant, float dt, int sigma, int rho, int beta);
+
+
+#endif

@@ -8,18 +8,18 @@
 
 
 int main(){
-    float pos0[3];
+    Point pos0;
+    pos0 = malloc(sizeof(Point));
+
     pos_initiale(pos0);
 
-    for (int i =0; i < 3; i++){
-        printf("%f ",pos0[i]);
-    }
+    printf("x = %f, y = %f, z = %f", pos0->x, pos0->y, pos0->z);
 
     printf("\n");
 
-    float dt[1];
-    def_Pas(dt);
-    printf("dt = %f\n", *dt);
+    float dt;
+    dt = def_Pas();
+    printf("dt = %f\n", dt);
 
     int sigma[1];
     int rho[1];
