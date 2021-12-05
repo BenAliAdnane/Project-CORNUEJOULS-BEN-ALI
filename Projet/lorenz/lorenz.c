@@ -27,7 +27,7 @@ void def_settings(int *sigma, int* rho, int* beta){
 
 int * point_suivant(int *t, int sigma, int rho, int beta){
     int res[3];
-    res[0] = t[0] + sigma * (t[1] - t[0]);
+    res[0] = t[0] + sigma * (t[1] - t[0]);    //diviser par dt !!!//
     res[1] = t[1] + t[0] * (rho - t[2]) - t[1];
     res[2] = t[2] + t[0] * t[1] - beta*t[2];
     return res;
