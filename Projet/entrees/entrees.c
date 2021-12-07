@@ -13,7 +13,7 @@ struct chaine
 struct chaine * nouvelle_chaine(int nb_valeur , char * filename)
 {
     struct chaine * res;
-    FILE* file = fopen(filename,"r+");
+    FILE* file = fopen(filename,"w+");
     char caractere_actuel = fgetc(file);
     res = (struct chaine *)malloc(sizeof(struct chaine));
     res->t = (char *)malloc(nb_valeur*(sizeof(char)));
@@ -65,9 +65,7 @@ void lire_entier(char * filename,int nb_valeur)
 
 void lire_decimal( char * filename , int nb_valeur) // Au final ce sont les même, mais on aura besoin que de lire_entier
 {
-    do
-    {
-        if(lit_format(filename, nb_valeur)==0)
-            printf("refais");
-    }while(lit_format(filename, nb_valeur)!=1);
+    if(lit_format(filename, nb_valeur)==0)
+        printf("refais");
 }
+
