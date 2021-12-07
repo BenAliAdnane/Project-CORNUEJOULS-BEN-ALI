@@ -3,27 +3,32 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <string.h>
-#define TAILLE_MAX 1000
+#define TAILLE_MAX 100
 
-bool lit_format(char * s)
+int lit_format(FILE* fichier)
 {
-    bool valid;
-    valid = false;
-    fgets(s, TAILLE_MAX,stdin);
+    int valid;
+    char s[TAILLE_MAX]="";
+    valid = 0;
+    fgets(s, TAILLE_MAX,fichier);
 
     int len = strlen(s);
 
-    while( len>0 && isspace(s[len-1]))
+    while( len>0 )
     {
-        len--;
+        while(isspace(s[len-1]))
+        {
+            len--;
+        }
+        
         if(len>0)
         {
-            valid = true;
+            valid = 1;
             for (int i=0; i<len ; i++)
             {
-                if(!isdigit(s[i]))
+                if(!isdigit(s[i]) && !isspace(s[i]))
                 {
-                    valid = false;
+                    valid = 0;
                     break;
                 }
             }
@@ -46,25 +51,20 @@ int lire_fin_ligne() // indique le nombre de caractère qu'il reste dans une lig
     return cpt;
 }
 
-void lire_entier(char * n)
+void lire_entier(FILE* fichier)
 {
-    int lu;
-    do
+    do 
     {
-        lu=scanf("%s", n);
-        if(lu!=1 && lit_format(n)==false)
+        if(lit_format(fichier)==0)
             printf("refais");
-    }while(lu!=1 && lit_format(n)!=true);
-    
+    }while(lit_format(fichier)!=1);
 }
 
-void lire_decimal( char * n )
+void lire_decimal( FILE* fichier) // Au final ce sont les même, mais on aura besoin que de lire_entier
 {
-    int lu;
     do
     {
-        lu=scanf("%s", n); // pas de & car on a deja float * n // //renvoie 0 si pas float, 1 sinon//
-        if(lu!=1 && lit_format(n)==false)
+        if(lit_format(fichier)==0)
             printf("refais");
-    }while(lu!=1 && lit_format(n)!=true);
+    }while(lit_format(fichier)!=1);
 }
