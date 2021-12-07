@@ -7,13 +7,13 @@
 
 typedef struct point_s *Point;
 
-void pos_initiale(Point p);
+void pos_initiale();
 
 float def_Pas();
 
 void def_settings(int *sigma, int* rho, int* beta);
 
-void point_suivant(Point p, Point suivant, float dt, int sigma, int rho, int beta);
+void point_suivant(float dt, float sigma, float rho, float beta);
 
 
 #endif

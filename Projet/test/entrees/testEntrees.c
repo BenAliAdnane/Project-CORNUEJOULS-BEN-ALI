@@ -8,7 +8,7 @@ int main()
     FILE* fichier;
     fichier = fopen("test.txt","r+");
 
-    fprintf(fichier ,"1557");
+    // fprintf(fichier ,"1557");
 
     fclose(fichier);
 
