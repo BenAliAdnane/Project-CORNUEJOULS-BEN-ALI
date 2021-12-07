@@ -1,28 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "../../../Include/entrees.h" 
 
 
 int main()
 {
-    FILE* fichier = NULL;
-    int age = 0;
+    FILE* fichier;
     fichier = fopen("test.txt","r+");
 
-    if (fichier!=NULL) // Verification fichier bien ouvert 
-    {
-        // ajout des points dans le fichier 
-        printf("Quel age as-tu?\n");
-        scanf("%d", &age);
+    fprintf(fichier ,"1557");
 
-        fprintf(fichier,"Le monsieur qui utilise le programme, il a %d ans", age);
+    fclose(fichier);
 
-        fputc('A', fichier);//Le 'A' est a remplacer par la position du point que l'on trouve grâce a lorenz
-        fclose(fichier);// fermeture du fichier pour la mémoire 
-    }
-
-    else
-        printf("Impossible d'ouvrir le fichier voulu");
+    printf("%d\n",lit_format("test.txt",4));
 
     return 0;
-
 }

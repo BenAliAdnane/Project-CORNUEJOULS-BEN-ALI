@@ -14,7 +14,7 @@ INC= ../../../include
 
 SRC= testlorenz.c
 
- 
+
 
 OBJ= $(SRC:.c=.o)
 
@@ -40,9 +40,10 @@ debug:
 	gdb $(EXEC) 
 
 # exécution  
-run:     
+run:
 	./$(EXEC)
 
 # suppression de tous les binaires 
-clean: 
+clean:
 	rm $(EXEC) *.o
+

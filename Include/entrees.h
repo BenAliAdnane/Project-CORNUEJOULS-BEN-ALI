@@ -4,10 +4,10 @@
 
 int lire_fin_ligne();
 
-void lire_entier(int * n);
+void lire_decimal(char* filename, int nb_valeur);
 
-void lire_decimal( float * n);
+int lit_format(char* filename, int nb_valeur);
 
-bool lit_format(char * s);
+void lire_entier(char * filename, int nb_valeur);
 
-void lire_entier(int * n);
+struct chaine * nouvelle_chaine(int nb_valeur);

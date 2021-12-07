@@ -3,40 +3,43 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <string.h>
-#define TAILLE_MAX 100
+#define TAILLE_MAX 10
 
-int lit_format(FILE* fichier)
+struct chaine
 {
-    int valid;
-    char s[TAILLE_MAX]="";
-    valid = 0;
-    fgets(s, TAILLE_MAX,fichier);
+    char * t;
+};
 
-    int len = strlen(s);
-
-    while( len>0 )
+struct chaine * nouvelle_chaine(int nb_valeur , char * filename)
+{
+    struct chaine * res;
+    FILE* file = fopen(filename,"r+");
+    char caractere_actuel = fgetc(file);
+    res = (struct chaine *)malloc(sizeof(struct chaine));
+    res->t = (char *)malloc(nb_valeur*(sizeof(char)));
+    for (int i=0 ; caractere_actuel!=EOF; i++)
     {
-        while(isspace(s[len-1]))
-        {
-            len--;
-        }
-        
-        if(len>0)
-        {
-            valid = 1;
-            for (int i=0; i<len ; i++)
-            {
-                if(!isdigit(s[i]) && !isspace(s[i]))
-                {
-                    valid = 0;
-                    break;
-                }
-            }
-        }
+        if(!isspace(caractere_actuel))
+            res->t[i]=caractere_actuel;
+        caractere_actuel=fgetc(file);
     }
-    return valid;
+    return res;
 }
 
+int lit_format(char * filename, int nb_valeur)  // renvoie 1 si que des entiers ou décimaux, 0 sinon
+{
+    struct chaine * echange;
+    echange = nouvelle_chaine(nb_valeur, filename);
+
+    int a = strlen(echange->t);
+
+    for(int i=0; i<a; i++)
+    {
+        if(!isdigit(echange->t[i]))
+            return 0;
+    }
+    return 1;
+} 
 
 int lire_fin_ligne() // indique le nombre de caractère qu'il reste dans une ligne //
 {
@@ -51,20 +54,20 @@ int lire_fin_ligne() // indique le nombre de caractère qu'il reste dans une lig
     return cpt;
 }
 
-void lire_entier(FILE* fichier)
+void lire_entier(char * filename,int nb_valeur)
 {
     do 
     {
-        if(lit_format(fichier)==0)
+        if(lit_format(filename,nb_valeur)==0)
             printf("refais");
-    }while(lit_format(fichier)!=1);
+    }while(lit_format(filename, nb_valeur)!=1);
 }
 
-void lire_decimal( FILE* fichier) // Au final ce sont les même, mais on aura besoin que de lire_entier
+void lire_decimal( char * filename , int nb_valeur) // Au final ce sont les même, mais on aura besoin que de lire_entier
 {
     do
     {
-        if(lit_format(fichier)==0)
+        if(lit_format(filename, nb_valeur)==0)
             printf("refais");
-    }while(lit_format(fichier)!=1);
+    }while(lit_format(filename, nb_valeur)!=1);
 }
