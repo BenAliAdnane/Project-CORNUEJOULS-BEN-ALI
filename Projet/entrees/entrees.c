@@ -38,3 +38,4 @@ void lit_format(char * format, int * n)
         nombre = lire_fin_ligne();
     }while((lu!=1) || (nombre > 0));
 }
+
