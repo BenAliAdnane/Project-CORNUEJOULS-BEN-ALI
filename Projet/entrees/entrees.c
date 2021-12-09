@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <string.h>
+#include "../../Include/entrees.h"
 #define TAILLE_MAX 10
 
 int lire_fin_ligne()
@@ -23,12 +24,12 @@ void lire_entier(int * n)
     lit_format("%d", n);
 }
 
-void lire_decimal(int * n)
+void lire_decimal(float * n)
 {
     lit_format("%f", n);
 }
 
-void lit_format(char * format, int * n)
+void lit_format(char * format, void * n)
 {
     int lu = 0;
     int nombre;
