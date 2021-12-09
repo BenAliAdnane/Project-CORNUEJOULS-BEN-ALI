@@ -8,22 +8,27 @@
 
 void pos_initiale(){
     
-    printf("Position initiale (x, y, z) :\n");
+
     
     FILE* fichier = NULL;
 
-        fichier = fopen("positions.txt", "w+");
-        float t = 0;
-        fprintf(fichier, "%f ", t);
-        float x, y, z;
+    fichier = fopen("positions.txt", "w+");
+    float t = 0;
+    fprintf(fichier, "%f ", t);
 
-        lit_decimal(&x);
-        lit_decimal(&y);
-        lit_decimal(&z);
-        fprintf(fichier, "%f %f %f\n", x, y, z);
-        fclose(fichier);
+    printf("Abscisse initiale (x) :\n");
+    float x, y, z;
+
+    lire_decimal(&x);
+    printf("Ordonnée initiale (y) :\n");
+    lire_decimal(&y);
+    printf("Cote initiale (z) :\n");
+    lire_decimal(&z);
+    fprintf(fichier, "%f %f %f\n", x, y, z);
+    fclose(fichier);
 
 }
+
 
 void point_suivant(float dt, float sigma, float rho, float beta){
     FILE* fichier;
