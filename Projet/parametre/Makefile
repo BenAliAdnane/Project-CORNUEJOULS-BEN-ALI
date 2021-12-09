@@ -8,7 +8,7 @@ LIB= ../../lib
 
 INC= ../../include
 
-EXEC=libparametre.a
+EXEC= $(LIB)/libparametre.a
 
 SRC=parametre.c
 

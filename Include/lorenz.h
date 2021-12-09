@@ -15,5 +15,7 @@ void def_settings(int *sigma, int* rho, int* beta);
 
 void point_suivant(float dt, float sigma, float rho, float beta);
 
+void demande_dt();
+
 
 #endif
