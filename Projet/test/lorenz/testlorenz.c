@@ -9,8 +9,8 @@
 int main(){
     pos_initiale();
     
-    float dt;
-    dt = 0.1;
+    Temps T = demande_temps();
+    
     int sigma;
     int rho;
     int beta;
@@ -18,7 +18,8 @@ int main(){
     sigma = 1;
     rho = 2;
     beta = 3;
-    
+    float dt =0.1;
+
     point_suivant(dt, sigma, rho, beta);
     return 0;
 }
