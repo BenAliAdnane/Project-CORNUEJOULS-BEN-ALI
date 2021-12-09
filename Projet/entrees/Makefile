@@ -8,7 +8,7 @@ LIB= ../../lib
 
 INC= ../../include
 
-EXEC= libentrees.a
+EXEC= $(LIB)/libentrees.a
 
 SRC=entrees.c
 
