@@ -46,4 +46,3 @@ run:
 # suppression de tous les binaires 
 clean:
 	rm $(EXEC) *.o
-

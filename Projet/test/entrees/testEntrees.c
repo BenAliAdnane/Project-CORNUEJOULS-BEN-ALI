@@ -14,5 +14,7 @@ int main()
 
     printf("%d\n",lit_format("test.txt",4));
 
+    demande_dt();
+
     return 0;
 }
