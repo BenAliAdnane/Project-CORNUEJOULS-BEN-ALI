@@ -2,11 +2,31 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <math.h>
-#include "../../lorenz/lorenz.c"
 #include "../../../Include/lorenz.h"
 #include "../../../Include/entrees.h"
 
 
+int main(){
+    pos_initiale();
+    
+    float dt;
+    dt = 0.1;
+    int sigma;
+    int rho;
+    int beta;
+    
+    sigma = 1;
+    rho = 2;
+    beta = 3;
+    
+    point_suivant(dt, sigma, rho, beta);
+    return 0;
+}
+
+
+
+
+/* ancien main, avec struct Point
 int main(){
     Point pos0;
     pos0 = malloc(sizeof(Point));
@@ -30,3 +50,4 @@ int main(){
 
     return 0;
 }
+*/
