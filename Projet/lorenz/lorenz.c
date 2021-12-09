@@ -69,9 +69,30 @@ void point_suivant(float dt, float sigma, float rho, float beta){
 struct temps_s
 {
     float dt;
-    float Temps_max;
+    int Temps_max;
 }Temps_s;
 
+Temps demande_temps()
+{
+    int * temps_max;
+    float * dt;
+    Temps temps_enregistre;
+    temps_enregistre=(Temps)malloc(sizeof(struct temps_s));
+
+    printf("Veuillez choisir le temps maximum (entier)");
+
+    lire_entier(temps_max);
+
+    temps_enregistre->Temps_max = *temps_max;
+
+    printf("Veuillez choisir le temps d'intervalle dt (float)");
+
+    lire_decimal(dt);
+
+    temps_enregistre->dt = *dt ;
+
+    return temps_enregistre;
+}
 
 
 /*      Ancienne version, sans fichiers
