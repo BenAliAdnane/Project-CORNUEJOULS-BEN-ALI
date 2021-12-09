@@ -66,6 +66,13 @@ void point_suivant(float dt, float sigma, float rho, float beta){
 }
 
 
+struct temps_s
+{
+    float dt;
+    float Temps_max;
+}Temps_s;
+
+
 
 /*      Ancienne version, sans fichiers
 
@@ -111,7 +118,4 @@ void point_suivant(Point p,Point suivant, float dt, int sigma, int rho, int beta
     
     suivant->z = p->z + ( p->x * p->y - beta*p->z )/dt;
 
-    suivant ->t = p->t +1;
-}
-
-*/
+    suivant ->t = +
