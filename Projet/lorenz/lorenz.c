@@ -10,27 +10,18 @@ void pos_initiale(){
     printf("Position initiale (x, y, z) :\n");
     
     FILE* fichier = NULL;
-        do{
-            fichier = fopen("positions.txt", "w+");
-            float t = 0;
-            fprintf(fichier, "%f ", t);
-            float x, y, z;
 
-            scanf("%f %f %f", &x, &y, &z);
-            if (lit_format("positions.txt", 100) ==1){
-                fprintf(fichier, "%f ", x);
+        fichier = fopen("positions.txt", "w+");
+        float t = 0;
+        fprintf(fichier, "%f ", t);
+        float x, y, z;
 
-                fprintf(fichier, "%f ", y);
+        lit_decimal(&x);
+        lit_decimal(&y);
+        lit_decimal(&z);
+        fprintf(fichier, "%f %f %f\n", x, y, z);
+        fclose(fichier);
 
-                fprintf(fichier, "%f ", z);
-
-            }else{
-                fclose(fichier);
-            }
-        }while(lit_format("positions.txt", 100)!=1);
-
-
-    fclose(fichier);
 }
 
 void point_suivant(float dt, float sigma, float rho, float beta){
@@ -45,12 +36,9 @@ void point_suivant(float dt, float sigma, float rho, float beta){
         do{
             fseek(fichier, -1, SEEK_END);
             fscanf(fichier, "%c", &current_char);
-        }while(current_char!= " ");
+        }while(!isspace(current_char));
     }
-    fscanf(fichier, "%f", &t0);
-    fscanf(fichier, "%f", &x0);
-    fscanf(fichier, "%f", &y0);
-    fscanf(fichier, "%f", &z0);
+    fscanf(fichier, "%f %f %f %f", &t0, &x0, &y0, &z0);
 
 
     float t1 = t0 + dt;
@@ -58,11 +46,7 @@ void point_suivant(float dt, float sigma, float rho, float beta){
     float y1 = y0 + (x0 * (rho - z0) - y0) * dt;
     float z1 = z0 + (x0 * y0 - beta * z0) * dt;
     fseek(fichier, 0, SEEK_END);
-    fprintf(fichier, "%f ", t1);
-    fprintf(fichier, "%f ", x1);
-    fprintf(fichier, "%f ", y1);
-    fprintf(fichier, "%f ", z1);
-
+    fprintf(fichier, "%f %f %f %f\n", t1, x1, y1, z1);
 }
 
 
