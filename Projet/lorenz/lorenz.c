@@ -123,4 +123,4 @@ void point_suivant(Point p,Point suivant, float dt, int sigma, int rho, int beta
     
     suivant->z = p->z + ( p->x * p->y - beta*p->z )/dt;
 
-    suivant ->t = +
+    suivant ->t = +  *\/*
