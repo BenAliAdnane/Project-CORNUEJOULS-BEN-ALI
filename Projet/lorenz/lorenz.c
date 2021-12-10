@@ -22,7 +22,7 @@ void pos_initiale(){
 
     fichier = fopen("positions.txt", "w+");
     float t = 0;
-    fprintf(fichier, "%f ", t);
+    fprintf(fichier, "\n%f ", t);
 
     printf("Abscisse initiale (x) :\n");
     float x, y, z;
@@ -48,7 +48,7 @@ void point_suivant(float dt, float sigma, float rho, float beta){
 
     for (int i = 0; i < 4; i++){
         do{
-            fseek(fichier, -1, SEEK_END);
+            fseek(fichier, -2, SEEK_CUR);
             fscanf(fichier, "%c", &current_char);
         }while(!isspace(current_char));
     }
@@ -61,6 +61,7 @@ void point_suivant(float dt, float sigma, float rho, float beta){
     float z1 = z0 + (x0 * y0 - beta * z0) * dt;
     fseek(fichier, 0, SEEK_END);
     fprintf(fichier, "%f %f %f %f\n", t1, x1, y1, z1);
+    fclose(fichier);
 }
 
 
@@ -94,7 +95,7 @@ Temps demande_temps()
 
 void lorenz(Temps temps_choisi, Parametre parametre_choisi)
 {
-    for(int i = 0; i < temps_choisi->Temps_max ; i+=(temps_choisi->dt))
+    for(float i = 0; i < temps_choisi->Temps_max ; i+=(temps_choisi->dt))
     {
         point_suivant(temps_choisi->dt,parametre_choisi->sigma,parametre_choisi->rho,parametre_choisi->beta);
     }
