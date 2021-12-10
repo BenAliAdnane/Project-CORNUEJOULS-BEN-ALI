@@ -1,4 +1,5 @@
 CC=gcc
+
 CFLAGS=  -Wextra -Wall -pedantic -g
 
 LDFLAGS=  -lm -lentrees -llorenz
