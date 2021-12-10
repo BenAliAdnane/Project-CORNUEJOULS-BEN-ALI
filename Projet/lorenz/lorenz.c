@@ -3,6 +3,8 @@
 #include <ctype.h>
 #include "../../Include/entrees.h"
 #include "../../Include/lorenz.h"
+#include "../../Include/parametre.h"
+#include "../parametre/parametre.c"
 
 
 
@@ -84,10 +86,10 @@ Temps demande_temps()
     return temps_enregistre;
 }
 
-void lorenz(Temps temps_choisi, float sigma, float rho, float beta)
+void lorenz(Temps temps_choisi, Parametre parametre_choisi)
 {
     for(int i = 0; i < temps_choisi->Temps_max ; i+=(temps_choisi->dt))
     {
-        point_suivant(temps_choisi->dt,sigma,rho,beta);
+        point_suivant(temps_choisi->dt,parametre_choisi->sigma,parametre_choisi->rho,parametre_choisi->beta);
     }
 }
