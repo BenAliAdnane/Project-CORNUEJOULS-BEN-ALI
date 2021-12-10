@@ -23,5 +23,7 @@ int main()
     lorenz(temps_enregistre, parametre_enregistre);
 
     // accrocher gnuplot ...
+    system("start gnuplot -persist -e \"plot 'positions.txt'\"");
+
     return 0;
 }
