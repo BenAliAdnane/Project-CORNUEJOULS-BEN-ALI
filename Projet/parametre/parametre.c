@@ -5,6 +5,7 @@
 #include <string.h>
 #include "../../Include/entrees.h"
 #include "../../Include/parametre.h"
+#include "../../Include/lorenz.h"
 
 struct parametre_s
 {

@@ -3,14 +3,14 @@ CFLAGS=  -Wextra -Wall -pedantic -g
 LDFLAGS=  -lm -lentrees -lparametre
 LIB= ../../lib
 INC= ../../include
-EXEC= $(LIB)/liblorenz.a libparametre.a
+EXEC= $(LIB)/liblorenz.a
 SRC=lorenz.c
 OBJ= $(SRC:.c=.o)
 all : $(EXEC)
 $(EXEC) : lorenz.c $(INC)/lorenz.h
 	$(CC) -o $(OBJ) -c $(SRC) $(CFLAGS)
-	ar rcs $(LIB)/liblorenz.a libparametre.a $(OBJ)
-	ranlib $(LIB)/liblorenz.a libparametre.a
+	ar rcs $(LIB)/liblorenz.a $(OBJ)
+	ranlib $(LIB)/liblorenz.a 
 %.o: %.c %.h
 	@$(CC) -o $@ -c $< $(CFLAGS)
 clean:

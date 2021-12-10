@@ -6,7 +6,6 @@
 #include "../../Include/entrees.h"
 #include "../../Include/lorenz.h"
 #include "../../Include/parametre.h"
-#include "../parametre/parametre.c"
 
 
 int main()

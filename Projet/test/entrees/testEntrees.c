@@ -1,20 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../../../Include/entrees.h" 
+#include "../../../Include/entrees.h"
+#include "../../../Include/lorenz.h"
 
 
 int main()
 {
-    FILE* fichier;
-    fichier = fopen("test.txt","r+");
+        demande_temps();
 
-    // fprintf(fichier ,"1557");
-
-    fclose(fichier);
-
-    printf("%d\n",lit_format("test.txt",4));
-
-    demande_dt();
-
-    return 0;
+        return 0;
 }

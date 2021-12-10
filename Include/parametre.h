@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "entrees.h"
 
 
-void demande_dt();
+
+typedef struct parametre_s *Parametre;
+
+Parametre demande_parametre();
