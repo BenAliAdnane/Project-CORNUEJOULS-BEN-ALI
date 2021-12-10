@@ -2,7 +2,7 @@ CC=gcc
 
 CFLAGS=  -Wextra -Wall -pedantic -g
 
-LDFLAGS=  -lm -lentrees -llorenz -lparametre
+LDFLAGS= -llorenz -lparametre -lentrees -lm
 
 LIB= ../../../lib
 
@@ -12,7 +12,7 @@ SRC= testparametre.c
 
 OBJ= $(SRC:.c=.o)
 
-EXEC= testparametre.exe
+EXEC=testparametre.exe
 
 
 all: $(EXEC)

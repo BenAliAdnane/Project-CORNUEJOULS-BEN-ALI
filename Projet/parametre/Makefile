@@ -2,7 +2,7 @@ CC=gcc
 
 CFLAGS=  -Wextra -Wall -pedantic -g
 
-LDFLAGS=  -lm -lparametre -lentrees -llorenz
+LDFLAGS= -lparametre -llorenz -lentrees -lm
 
 LIB= ../../lib
 

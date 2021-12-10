@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=  -Wextra -Wall -pedantic -g
-LDFLAGS=  -lm -lentrees -lparametre
+LDFLAGS= -llorenz -lparametre -lentrees -lm
 LIB= ../../lib
 INC= ../../include
 EXEC= $(LIB)/liblorenz.a
