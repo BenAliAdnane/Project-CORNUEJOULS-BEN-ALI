@@ -20,7 +20,6 @@ int main(){
     beta = 3;
     float dt =0.1;
 
-    point_suivant(dt, sigma, rho, beta);
     return 0;
 }
 

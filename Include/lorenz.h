@@ -4,9 +4,8 @@
 #include "entrees.h"
 #include "parametre.h"
 
-
-
-typedef struct temps_s *Temps;
+//Explication des fonction dans le .c
+typedef struct temps_s *Temps;      // typedef pour pas avoir à reécrire struct temp_s *
 
 void pos_initiale();
 

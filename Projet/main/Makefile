@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS= -Wextra -Wall -pedantic -g
-LDFLAGS= -lparametre -llorenz -lentrees -lm
+LDFLAGS= -lparametre -llorenz -lentrees -lm   #Ordre des lib IMPORTANT, sinon risque de planter, lecture de droite à gauche!!!
 LIB= ../../lib
 INC= ../../Include
 SRC= main.c

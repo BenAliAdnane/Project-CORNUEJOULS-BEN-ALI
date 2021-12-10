@@ -37,6 +37,8 @@ void lit_format(char * format, void * n)
     {
         lu = scanf(format, n);
         nombre = lire_fin_ligne();
+        if (lu!=1)
+            printf("Veuillez entrer un nombre correct!");
     }while((lu!=1) || (nombre > 0));
 }
 

@@ -1,22 +1,11 @@
-*Project-CORNUEJOULS-BEN-ALI
-**Essaie des commandes de git et du terminal et utilisation de gitkraken.
-       *** git push, git commit, git add ., git remote -v, git log, git branch, git merge
-       *** touch " nom fichier " // creation d'un fichier
+*Manuel d'utilisation
 
-**Ajout des dossiers
-        *** "Projet","include","lib","lorenz","paramlib"
-
-**Ajout dossier "entrees","lorenz","paramlib","test" dans "Projet"
-        *** "entrees.c" ainsi que son Makefile
-
-**Ajout fichier vide dans "lorenz"
-        *** lorenz.c + Makefile
-
-**Ajout fichier vide dans "paramlib"
-        *** paramlib.c
-
-**Ajout fichier vide dans "test"
-        *** test.c
-
-**Ajout fichier dans include
-        *** entrees.h
+Le programme vous demande de saisir les paramètres.
+Vous pouvez écrire un int ou bien un float, mais rien d'autre sinon le programme vous redemande d'écrire...
+Vous ne pouvez pas écrire de fraction, mais directement en float
+Le programme vous demande ensuite de saisir les coordonnees initiale.
+Vous pouvez écrire un int ou bien un float, mais rien d'autre sinon le programme vous redemande d'écrire...
+Choix du temps maximum et de l'intervalle de temps dt
+vous pouvez écrire un int ou bien un float, mais rien d'autre sinon le programme vous redemande d'écricre...
+Le programme vous afficher la courbe si vous avez bien gnupplot installe sur votre pc
+FIN

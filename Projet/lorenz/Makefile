@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=  -Wextra -Wall -pedantic -g
-LDFLAGS= -llorenz -lparametre -lentrees -lm
+LDFLAGS= -llorenz -lparametre -lentrees -lm     #Ordre des lib IMPORTANT, sinon risque de planter, lecture de droite à gauche!!!
 LIB= ../../lib
 INC= ../../include
 EXEC= $(LIB)/liblorenz.a
