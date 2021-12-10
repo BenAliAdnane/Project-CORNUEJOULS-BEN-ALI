@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS= -Wextra -Wall -pedantic -g
-LDFLAGS= -lm -lentrees -llorenz -lparametre
+LDFLAGS= -lparametre -llorenz -lentrees -lm
 LIB= ../../lib
 INC= ../../Include
 SRC= main.c
