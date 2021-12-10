@@ -4,8 +4,14 @@
 #include "../../Include/entrees.h"
 #include "../../Include/lorenz.h"
 #include "../../Include/parametre.h"
-#include "../parametre/parametre.c"
+//#include "../parametre/parametre.c"
 
+struct parametre_s
+{
+    float sigma;
+    float rho;
+    float beta;
+}Parametre_s;
 
 
 void pos_initiale(){
